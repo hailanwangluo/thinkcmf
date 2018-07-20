@@ -1,0 +1,51 @@
+
+<body>
+   
+<!--顶部导航开始-->
+<div style="width:100%;"><div style="margin:0 auto;text-align: center;"><img src="https://cdn.goodq.top/caches/57a714242fc8014d00e4e002ec66f389/aHR0cDovL3d3dy5iYWtlbmF0dXJlLmNvbS9xZnktY29udGVudC91cGxvYWRzLzIwMTgvMDIvM2U3NGYzZGRiNmZiZmYyN2U3YzE0MTdjOTczYWVjMTEucG5n.png"></div>
+</div>
+<!-- header start -->
+
+<div class="bgf header">
+    <div class="container">
+        <a href="/" class="icon-logo fl block"></a>
+        <ul class="fl navList clearfix" id="headerNavList">
+                    <li class="fl cur">
+                        <a href="{:url('home/index/index')}" class="block" op="navOne" data-id="index">首　页</a>
+                    </li>
+                    {volist name="category" id="vo"}
+                    {if condition="$vo['child'] eq 1"}
+                    <li class="pr fl" op="navGroup" >
+                        <a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']] )}" class="block" op="navOne" data-id="cake">{$vo.catname}</a>
+                        <ul class="pa bgf secondNav" op="navGroupList">
+                            {volist name="$vo.sub" id="v"}
+                            <li><a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$v['id']] )}" op="navOne" data-id="cake_">{$v.catname}</a></li>
+                            {/volist}
+                        </ul>
+                    </li>
+                    {else /}
+                    <li class="fl" op="navOne">
+                        <a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']] )}" class="block" op="navOne" data-id="coffee">{$vo.catname}</a>
+                    </li>
+                    {/if}
+                    {/volist}
+
+
+                   
+              
+        </ul>
+
+
+
+        <ul class="fr hearderRt clearfix">
+            <li class="fl" id="cartNumInfo">
+                <a href="/" class="icon-cart pr block" id="headerCart">
+                    <em class="pa block numb" id="cartNum" style="display: none;"></em>
+                </a>
+            </li>
+                            <li class="fl">
+                    <a href="/" class="block login" id="headerLogin">登录</a>
+                </li>
+                    </ul>
+    </div>
+</div>

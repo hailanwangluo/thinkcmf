@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    var MES_GLOBAL_VARS = {
+        tel: '{$sys.tel}'
+    };
+</script>
+<div class="bgGray5 pt10 pb10 tc f22">天然关爱　|　佳焙传承</div>
+<!-- introduce start -->
+<div class="bgGray introduce">
+    <div class="container clearfix">
+        <div class="fl introEwm">
+            <p class="f22 tc">加入佳焙天然微商城<br/>随享便捷</p>
+            <img src="{$sys.erwei}" width="219" height="219" class="block" alt="">
+        </div>
+        <div class="fr introCont">
+            <h3 class="f28">佳焙天然每实 ︱ 用爱与热情重新定义蛋糕</h3>
+            <div class="text f15 mt30">
+                纵使温室技术与培植技术再怎么发达，也无法取代食物所在地的原汁原味。<br/>
+                佳焙天然每实在全世界挑选大自然最本真、最质朴的美味食材。所有原材料均来自其最佳产地。
+                这不仅是一种因地制宜，更是顺应，尊重自然的健康之道。土耳其的榛子、新西兰的奇异果、泰国的金枕榴莲、牙买加的摩根船长朗姆酒、还有上品的白兰地……<br/>
+                食材在佳焙天然每实的意义，不仅是味蕾的满足，更是一种心灵的邂逅。
+            </div>
+            <div class="mt25 f14">
+                <p>订购咨询热线：</p>
+                <div class="mt10 hotline"> {$sys.tel}</div>
+                <p class="mt10">人工服务时间：8:30-20:00</p>
+                <p class="mt10">淘宝、京东有售</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- introduce end -->
+
+<!-- footer start -->
+<div class="footer tc container">
+    <a href="javascript:;" class="pr ib pt10 backTop" onclick="$('html,body').animate({scrollTop: 0}, 500);"><em class="icon-up-arrow pa"></em>
+        <p>返回顶部<br/>BACK TO TOP</p></a>
+    <em class="icon-ft-logo block center"></em>
+    <div class="c9 copyright"> {$sys.bah} 2018@佳焙天然cake.com All rights reserved</div>
+</div>
+<!-- footer end -->
+
+<input id="statisticsViewType" type="hidden" value="pc.Introduct.about"/>
+<script type="text/javascript">
+    $(function () {
+        var mesStatistics = MES.statistics;
+        mesStatistics.statisticsSend("open", "_param", '');
+    });
+</script>
+
+</body>
+</html>

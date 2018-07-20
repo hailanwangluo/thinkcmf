@@ -1,0 +1,48 @@
+{include file="common/head"/}
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>添加系统变量</legend>
+    </fieldset>
+    <form class="layui-form layui-form-pane" lay-filter="form-email">
+        <div class="layui-form-item">
+            <label class="layui-form-label">变量名字</label>
+            <div class="layui-input-4">
+                <input type="text" lay-verify="required" name="name" placeholder="SMTP服务器" class="layui-input">
+            </div>
+        </div>
+         <div class="layui-form-item">
+            <label class="layui-form-label">变量值</label>
+            <div class="layui-input-4">
+                <input type="text" lay-verify="required" name="value" placeholder="SMTP服务器" class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn" lay-submit="" lay-filter="submit">提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                
+            </div>
+        </div>
+    </form>
+</div>
+{include file="common/foot"/}
+<script>
+    layui.use(['form', 'layer'], function () {
+        var form = layui.form,layer = layui.layer,$= layui.jquery;
+        form.on('submit(submit)', function (data) {
+            // 提交到方法 默认为本身
+            $.post("{:url('add')}",data.field,function(res){
+                if(res.code > 0){
+                    layer.msg(res.msg,{time:1000,icon:1},function(){
+                        location.href = res.url;
+                    });
+                }else{
+                    layer.msg(res.msg,{time:1000,icon:2});
+                }
+            });
+        })
+    });
+</script>
+</body>
+</html>

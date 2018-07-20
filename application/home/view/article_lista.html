@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8"/>
+ <title>{if isset($info['title'])}{$info.title}{elseif condition="$title" /}{$title}{else}{$sys.title}{/if}</title>
+    <meta name="keywords" content="{if isset($info['keywords'])}{$info.keywords}{elseif condition="$keywords" /}{$keywords}{else}{$sys.key}{/if}" />
+    <meta name="description" content="{if isset($info['description'])}{$info.description}{elseif condition="$description" /}{$description}{else}{$sys.des}{/if}" />
+    <link type="text/css" rel="stylesheet" href="/static/home/css/about.css"/>
+
+    <script src="/static/home/js/common.js" type="text/javascript"></script>
+</head>
+{include file="common/head"/}
+<!-- header end --><!-- header end -->
+
+<!-- cont start -->
+<div class="cont">
+
+    <img src="{$image}" width="100%" class="block" alt="">
+
+    <div class="container defineCard">
+        <div class="tc aboutHd">
+            <p class="f28 pt20">和佳焙天然每实在一起 ︱ 见证每一非凡时刻</p>
+            <div class="f15 mt40 lh20">
+                <p>当我们谈论蛋糕的时候，我们在谈论美食、味道、还是心情？当爱情降临，当事业擢升，当亲朋团聚……</p>
+                <p>当每一个美好的时刻发生，都值得欢呼，都应当庆祝。</p>
+                <p>让食物拥有幸福的味道，让记忆刻上甜蜜的烙印。</p>
+                <p>让生命中的每一个特殊时刻， 佳焙天然美食陪伴。</p>
+            </div>
+        </div>
+
+        <div class="oh" id="articleList">
+            
+            <ul class="journalList clearfix">
+                {clt:listjoin db='article' dbfield='catid' id='vo' joindb='category' joinfield='id' where="posid = 0" order="sort asc,createtime desc" limit='4'}
+                <li class="fl">
+                    <img src="{$vo.thumb}" load="lazy" data-original="{$vo.thumb}" width="336" height="200" class="block" alt="">
+                    <div class="bgGray journalInfo">
+                        <p class="pr time"><em class="icon-time pa"></em>{:toDate($vo['createtime'],'Y-m-d H:i:s')}</p>
+                        <p class="f18 ell title">{$vo.title}</p>
+                        <em class="block line"></em>
+                        <p class="f14 lh18 ell text">{$vo.description}</p>
+                        <a target="_blank" href="{:url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}" class="ib mt20 f15" op="articleOne" data-title="{$vo.title}">阅读全部内容</a>
+                    </div>
+                </li>
+                  {/clt:listjoin}
+            </ul>
+        </div>
+    </div>
+
+
+</div>
+<!-- cont end -->
+   <script src="/static/home/js/journal.js" type="text/javascript"></script>
+{include file="common/footer"/}
